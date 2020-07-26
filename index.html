@@ -11,7 +11,7 @@
             <!-- Fetch some planetary data -->
         </div> 
         <div id="launchForm">
-            <form action="" method="POST">
+            <form method="POST">
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
                     <label>Pilot Name <input type="text" name="pilotName" id="pilotName" required/></label>
                 </div>
@@ -19,10 +19,10 @@
                     <label>Co-pilot Name <input type="text" name="copilotName" id="copilotName" required/></label>
                 </div>
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
-                    <label>Fuel Level (L) <input type="number" name="fuelLevel" id="fuelLevel" required/></label> 
+                    <label>Fuel Level (L) <input type="number" name="fuelLevel" id="fuelLevel" value=Number required/></label> 
                 </div>
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
-                    <label>Cargo Mass (kg) <input type="number" name="cargoMass" id="cargoMass"  required/></label>
+                    <label>Cargo Mass (kg) <input type="number" name="cargoMass" id="cargoMass"  value=Number required/></label>
                 </div>
                 <button id="formSubmit" type="submit">Submit</button>
             </form>

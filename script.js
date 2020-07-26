@@ -17,11 +17,10 @@ window.addEventListener("load", function() {
       let fuelLevel = document.querySelector("input[name=fuelLevel]").value; 
       let cargoMass = document.querySelector("input[name=cargoMass]").value; 
 
-   if (pilotName === "" || copilotName === "" || fuelLevel === isNAN(fuelLevel.value) || cargoMass === isNAN(cargoMass.value)){ 
+   if (pilotName === "" || copilotName === "" || fuelLevel === isNAN(fuelLevel.value) || cargoMass === isNAN(cargoMass.value)) { 
          alert("All fields are required!"); 
 
-         items.style.visibility = 'hidden'; 
-      launchStatus.style.color = 'black'; 
+      items.style.visibility = 'hidden'; 
       launchStatus.innerHTML = 'Awaiting Information Before Launch'; 
    } else { 
       items.style.visibility = 'visible'; 
