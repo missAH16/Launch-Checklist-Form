@@ -1,7 +1,7 @@
 // Write your JavaScript code here!
 window.addEventListener("load", function() { 
  let form = document.querySelector("form"); 
-   form.addEventListener("submit", function(event) { 
+   form.addEventListener("formSubmit", function(event) { 
        event.preventDefault(); 
       event.stopPropagation(); 
 
