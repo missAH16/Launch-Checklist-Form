@@ -19,6 +19,7 @@ window.addEventListener("load", function() {
 
    if (pilotName === "" || copilotName === "" || fuelLevel === isNAN(fuelLevel.value) || cargoMass === isNAN(cargoMass.value)){ 
          alert("All fields are required!"); 
+
          items.style.visibility = 'hidden'; 
       launchStatus.style.color = 'black'; 
       launchStatus.innerHTML = 'Awaiting Information Before Launch'; 
@@ -27,23 +28,24 @@ window.addEventListener("load", function() {
       document.getElementById('pilotStatus').innerHTML = `Pilot stat${ pilotName + ' '} is ready for launch`; 
       document.getElementById('copilotStatus').innerHTML = `Co-Pilot ${ copilotName + ' '} is ready for launch`; 
    
-   if (fuelLevel = 10000) { 
+   if (fuelLevel >= 10000) { 
       ready = false;
       fuelStatus = 'Fuel level too low for launch'; 
    } else { 
       cargoStatus.innerHTML = 'Fuel level sufficient for launch'; 
    } 
-   if (cargoMass = 10000) { 
+   if (cargoMass <= 10000) { 
       ready = false;
       cargoStatus = 'Cargo mass too great for launch'; 
    } else { 
       cargoMass = 'Cargo mass low enough for launch'; 
    } 
   if (ready) { 
-     launchStatus.style.color = 'green'; 
+     launchStatus.style.color = "green"; 
       launchStatus = 'Shuttle is ready for launch'; 
    } else { 
-      launchStatus.style.color = 'red'; 
+
+      launchStatus.style.color = "red";
       launchStatus = 'Shuttle not ready for launch'; 
       } 
    }; 
