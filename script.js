@@ -20,46 +20,48 @@ window.addEventListener("load", function() {
 
    if (pilotName === "" || copilotName === "" || fuelLevel === isNAN(fuelLevel.value) || cargoMass === isNAN(cargoMass.value)) { 
          alert("All fields are required!"); 
-
-      items.style.visibility = 'hidden'; 
-      launchStatus.style.color = 'black';
-      launchStatus.innerHTML = 'Awaiting Information Before Launch'; 
+         items.style.visibility = 'hidden'; 
+      
+         launchStatus.style.color = 'black';
+         launchStatus.innerHTML = 'Awaiting Information Before Launch'; 
    } else { 
       items.style.visibility = 'visible'; 
+
       document.getElementById('pilotStatus').innerHTML = `Pilot stat${ pilotName + ' '} is ready for launch`
       document.getElementById('copilotStatus').innerHTML = `Co-Pilot ${ copilotName + ' '} is ready for launch` 
       
-   if (fuelLevel >= 10000) { 
+   if (fuelLevel < 10000) { 
       ready = false;
       fuelStatus = 'Fuel level too low for launch'; 
    } else { 
-      cargoStatus.innerHTML = 'Fuel level sufficient for launch'; 
+      furelStatus.innerHTML = 'Fuel level sufficient for launch'; 
    } 
-   if (cargoMass <= 10000) { 
+   if (cargoMass > 10000) { 
       ready = false;
-      cargoStatus = 'Cargo mass too great for launch'; 
+      cargoStatus.innerHTML = 'Cargo mass too great for launch'; 
    } else { 
-      cargoMass = 'Cargo mass low enough for launch'; 
+      cargoStatus.innerHTML = 'Cargo mass low enough for launch'; 
    } 
   if (ready) { 
      launchStatus.style.color = 'green'; 
-      launchStatus = 'Shuttle is ready for launch'; 
+      launchStatus.innnerHTML = 'Shuttle is ready for launch'; 
       retreiveData();
    } else { 
       items.style.visibility = 'visible'
       launchStatus.style.color = 'red';
-      launchStatus = 'Shuttle not ready for launch'; 
+      launchStatus.innerHTML = 'Shuttle not ready for launch'; 
          }
        }
    });
 });
 
 function retreiveData() {
- fetch('https://handlers.education.launchcode.org/static/planets.json').then(function(response) { 
+ fetch('https://handlers.education.launchcode.org/static/planets.json').then(function (response) { 
       response.json().then(function (data) { 
-         let miTargets = document.getElementById('missionTarget'); 
-         let random = Math.round(Math.random()*data.length); 
+         let mTargets = document.getElementById('missionTarget'); 
+         let random = Math.round(Math.random() * data.length); 
          let target = data[random]; 
+
       mTargets.innerHTML = 
       `<h2>Mission Destination</h2> 
    <ol> 
