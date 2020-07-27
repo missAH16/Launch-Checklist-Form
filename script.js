@@ -1,9 +1,9 @@
 // Write your JavaScript code here!
 window.addEventListener("load", function() { 
  let form = document.querySelector("form"); 
-   form.addEventListener("formSubmit", function(event) { 
+      form.addEventListener("formSubmit", function(event) { 
        event.preventDefault(); 
-      event.stopPropagation(); 
+       event.stopPropagation(); 
 
        
       let items = document.getElementById('faultyItems'); 
@@ -21,12 +21,13 @@ window.addEventListener("load", function() {
          alert("All fields are required!"); 
 
       items.style.visibility = 'hidden'; 
+      launchStatus.style.color = 'black';
       launchStatus.innerHTML = 'Awaiting Information Before Launch'; 
    } else { 
       items.style.visibility = 'visible'; 
-      document.getElementById('pilotStatus').innerHTML = `Pilot stat${ pilotName + ' '} is ready for launch`; 
-      document.getElementById('copilotStatus').innerHTML = `Co-Pilot ${ copilotName + ' '} is ready for launch`; 
-   
+      document.getElementById('pilotStatus').innerHTML = `Pilot stat${ pilotName + ' '} is ready for launch`
+      document.getElementById('copilotStatus').innerHTML = `Co-Pilot ${ copilotName + ' '} is ready for launch` 
+      
    if (fuelLevel >= 10000) { 
       ready = false;
       fuelStatus = 'Fuel level too low for launch'; 
@@ -40,19 +41,22 @@ window.addEventListener("load", function() {
       cargoMass = 'Cargo mass low enough for launch'; 
    } 
   if (ready) { 
-     launchStatus.style.color = "green"; 
+     launchStatus.style.color = 'green'; 
       launchStatus = 'Shuttle is ready for launch'; 
+      retreiveData();
    } else { 
-
-      launchStatus.style.color = "red";
+      items.style.visibility = 'visible'
+      launchStatus.style.color = 'red';
       launchStatus = 'Shuttle not ready for launch'; 
-      } 
-   }; 
-}); 
+         }
+       }
+   });
+});
 
+function retreiveData() {
  fetch('https://handlers.education.launchcode.org/static/planets.json').then(function(response) { 
       response.json().then(function (data) { 
-         let mTargets = document.getElementById('missionTarget'); 
+         let miTargets = document.getElementById('missionTarget'); 
          let random = Math.round(Math.random()*data.length); 
          let target = data[random]; 
       mTargets.innerHTML = 
@@ -67,4 +71,4 @@ window.addEventListener("load", function() {
       <img src="${target.image}"></img>` 
       }); 
    }) 
-}) 
+}
