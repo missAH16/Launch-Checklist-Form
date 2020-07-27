@@ -1,11 +1,12 @@
 // Write your JavaScript code here!
 window.addEventListener("load", function() { 
  let form = document.querySelector("form"); 
-      form.addEventListener("formSubmit", function(event) { 
+      form.addEventListener("submit", function(event) { 
        event.preventDefault(); 
        event.stopPropagation(); 
 
-       
+      
+
       let items = document.getElementById('faultyItems'); 
       let launchStatus = document.getElementById('launchStatus'); 
       let fuelStatus = document.getElementById('fuelStatus'); 
