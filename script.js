@@ -5,9 +5,7 @@ window.addEventListener("load", function() {
       form.addEventListener("submit", function(event) { 
        event.preventDefault(); 
        event.stopPropagation(); 
-
-      
-
+       
       let items = document.getElementById('faultyItems'); 
       let launchStatus = document.getElementById('launchStatus'); 
       let fuelStatus = document.getElementById('fuelStatus'); 
@@ -29,8 +27,8 @@ window.addEventListener("load", function() {
    } else { 
       items.style.visibility = 'visible'; 
       
-      document.getElementById('pilotStatus').innerHTML = `Pilot ${pilotName + ' '} is ready for launch`
-      document.getElementById('copilotStatus').innerHTML = `Co-Pilot ${copilotName + ' '} is ready for launch` 
+      document.getElementById('pilotStatus').innerHTML = `Pilot ${pilotName + ' '} ready for launch`
+      document.getElementById('copilotStatus').innerHTML = `Co-Pilot ${copilotName + ' '} ready for launch` 
       
    if (fuelLevel < 10000) { 
       ready = false;
@@ -58,7 +56,7 @@ window.addEventListener("load", function() {
    });
 
 function retrieveData() {
-   
+
  fetch('https://handlers.education.launchcode.org/static/planets.json').then(function (response) { 
       response.json().then(function (data) { 
          let mTargets = document.getElementById('missionTarget'); 
