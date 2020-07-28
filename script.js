@@ -18,21 +18,22 @@ window.addEventListener("load", function() {
       let fuelLevel = document.querySelector("input[name=fuelLevel]").value; 
       let cargoMass = document.querySelector("input[name=cargoMass]").value; 
 
-   if (pilotName === "" || copilotName === "" || fuelLevel === isNAN(fuelLevel.value) || cargoMass === isNAN(cargoMass.value)) { 
-         alert("All fields are required!"); 
+   if (pilotName === "" || copilotName === "" || fuelLevel === '' || isNAN(fuelLevel.value) || cargoMass === '' || isNAN(cargoMass.value)) { 
+         
+      alert("All fields are required!"); 
          items.style.visibility = 'hidden'; 
-      
          launchStatus.style.color = 'black';
          launchStatus.innerHTML = 'Awaiting Information Before Launch'; 
+
    } else { 
       items.style.visibility = 'visible'; 
-
-      document.getElementById('pilotStatus').innerHTML = `Pilot stat${ pilotName + ' '} is ready for launch`
-      document.getElementById('copilotStatus').innerHTML = `Co-Pilot ${ copilotName + ' '} is ready for launch` 
+      
+      document.getElementById('pilotStatus').innerHTML = `Pilot ${pilotName + ' '} is ready for launch`
+      document.getElementById('copilotStatus').innerHTML = `Co-Pilot ${copilotName + ' '} is ready for launch` 
       
    if (fuelLevel < 10000) { 
       ready = false;
-      fuelStatus = 'Fuel level too low for launch'; 
+      fuelStatus.innerHTML = 'Fuel level too low for launch'; 
    } else { 
       furelStatus.innerHTML = 'Fuel level sufficient for launch'; 
    } 
@@ -52,8 +53,8 @@ window.addEventListener("load", function() {
       launchStatus.innerHTML = 'Shuttle not ready for launch'; 
          }
        }
+      });
    });
-});
 
 function retreiveData() {
  fetch('https://handlers.education.launchcode.org/static/planets.json').then(function (response) { 
