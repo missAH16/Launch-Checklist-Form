@@ -1,7 +1,7 @@
 // Write your JavaScript code here!
 window.addEventListener("load", function() { 
- let form = document.querySelector("form"); 
- fetch('https://handlers.education.launchcode.org/static/planets.json').then(function (response) { 
+ let form = document.querySelector("form")
+fetch('https://handlers.education.launchcode.org/static/planets.json').then(function (response) { 
       response.json().then(function (data) { 
          let mTargets = document.getElementById('missionTarget'); 
          let random = Math.round(Math.random() * data.length); 
@@ -40,7 +40,7 @@ window.addEventListener("load", function() {
          items.style.visibility = 'hidden'; 
          launchStatus.style.color = 'black';
          launchStatus.innerHTML = 'Awaiting Information Before Launch'; 
-
+   
    } else { 
       items.style.visibility = 'visible'; 
       
@@ -68,6 +68,6 @@ window.addEventListener("load", function() {
       launchStatus.style.color = 'red';
       launchStatus.innerHTML = 'Shuttle not ready for launch'; 
          }
-       }
+       };
       });
    });
