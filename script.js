@@ -19,8 +19,7 @@ fetch('https://handlers.education.launchcode.org/static/planets.json').then(func
       <img src="${target.image}"></img>` 
       }); 
    })
-   let button = document.getElementById("submit");
-      form.addEventListener("submit", function(event) { 
+       form.addEventListener("submit", function(event) { 
        event.preventDefault(); 
        event.stopPropagation(); 
 
