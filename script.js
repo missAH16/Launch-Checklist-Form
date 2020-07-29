@@ -34,7 +34,7 @@ fetch('https://handlers.education.launchcode.org/static/planets.json').then(func
       let fuelLevel = document.querySelector("input[name=fuelLevel]").value; 
       let cargoMass = document.querySelector("input[name=cargoMass]").value; 
 
-   if (pilotName === "" || copilotName === "" || fuelLevel === '' || isNAN(fuelLevel.value) || cargoMass === '' || isNAN(cargoMass.value)) { 
+   if (pilotName === "" || copilotName === "" || fuelLevel === '' || Number.isNAN(fuelLevel.value) || cargoMass === '' || Number.isNAN(cargoMass.value)) { 
          
       alert("All fields are required!"); 
          items.style.visibility = 'hidden'; 
