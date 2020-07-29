@@ -56,7 +56,6 @@ window.addEventListener("load", function() {
    });
 
 function retrieveData() {
-
  fetch('https://handlers.education.launchcode.org/static/planets.json').then(function (response) { 
       response.json().then(function (data) { 
          let mTargets = document.getElementById('missionTarget'); 
