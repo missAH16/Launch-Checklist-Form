@@ -18,8 +18,10 @@ fetch('https://handlers.education.launchcode.org/static/planets.json').then(func
    </ol> 
       <img src="${target.image}"></img>` 
       }); 
+   
    })
        form.addEventListener("submit", function(event) { 
+          form.getElementById
        event.preventDefault(); 
        event.stopPropagation(); 
 
@@ -33,7 +35,7 @@ fetch('https://handlers.education.launchcode.org/static/planets.json').then(func
       let copilotName = document.querySelector("input[name=copilotName]").value; 
       let fuelLevel = document.querySelector("input[name=fuelLevel]").value; 
       let cargoMass = document.querySelector("input[name=cargoMass]").value; 
-
+       });
    if (pilotName === "" || copilotName === "" || fuelLevel === '' || Number.isNAN(fuelLevel.value) || cargoMass === '' || Number.isNAN(cargoMass.value)) { 
          
       alert("All fields are required!"); 
@@ -58,7 +60,7 @@ fetch('https://handlers.education.launchcode.org/static/planets.json').then(func
       cargoStatus.innerHTML = 'Cargo mass too great for launch'; 
    } else { 
       cargoStatus.innerHTML = 'Cargo mass low enough for launch'; 
-   } 
+   }
   if (ready) { 
      launchStatus.style.color = 'green'; 
       launchStatus.innnerHTML = 'Shuttle is ready for launch'; 
@@ -67,7 +69,6 @@ fetch('https://handlers.education.launchcode.org/static/planets.json').then(func
       items.style.visibility = 'visible'
       launchStatus.style.color = 'red';
       launchStatus.innerHTML = 'Shuttle not ready for launch'; 
-         }
+   }
        };
       });
-   });
