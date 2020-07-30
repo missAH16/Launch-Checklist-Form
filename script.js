@@ -21,7 +21,7 @@ window.addEventListener("load", function() {
    }) 
    form.addEventListener("submit", function(event) { 
        event.preventDefault(); 
-      event.stopPropagation(); 
+       event.stopPropagation(); 
 
        
       let items = document.getElementById('faultyItems'); 
@@ -37,11 +37,13 @@ window.addEventListener("load", function() {
 
    if (pilotName === "" || copilotName === "" || fuelLevel === isNaN(fuelLevel.value) || cargoMass === isNaN(cargoMass.value)){ 
          alert("All fields are required!"); 
-         items.style.visibility = 'hidden'; 
+      items.style.visibility = 'hidden'; 
       launchStatus.style.color = 'black'; 
       launchStatus.innerHTML = 'Awaiting Information Before Launch'; 
    } else { 
       items.style.visibility = 'visible'; 
+      launchStatus.style.color = 'green'; 
+      launchStatus.innerHTML = 'Shuttle ready for launch'; } 
       document.getElementById('pilotStatus').innerHTML = `Pilot ${ pilotName + ' '} is ready for launch`; 
       document.getElementById('copilotStatus').innerHTML = `Co-Pilot ${ copilotName + ' '} is ready for launch`; 
    
@@ -57,13 +59,9 @@ window.addEventListener("load", function() {
    } else { 
       cargoMass.innerHTML = 'Cargo mass low enough for launch'; 
    } 
-  if (ready) { 
-     launchStatus.style.color = 'green'; 
-      launchStatus.innerHTML = 'Shuttle is ready for launch'; 
-   } else { 
+  if (!ready) { 
       launchStatus.style.color = 'red'; 
       launchStatus.innerHTML = 'Shuttle not ready for launch'; 
-      } 
    }; 
 }); 
 }) 
